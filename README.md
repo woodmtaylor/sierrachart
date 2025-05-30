@@ -16,7 +16,6 @@ Place the `.cpp` file in `ACS_Source` folder, then go to **Analysis → Build Cu
 
 ## AutoBAs - Automated Trading Levels
 ![AutoBAs Example](images/AutoBAs.png)
-*AutoBAs identifying balance areas with value area highlights and activation tracking*
 
 AutoBAs identifies and tracks Balance Areas in real-time using volume profile overlap, value area overlap, and geometric proximity analysis. The study monitors BA formation, activation when price breaks value area boundaries, and intersection dynamics between multiple balance areas.
 
@@ -28,7 +27,6 @@ The study includes statistical normality filtering, composite pattern detection 
 
 ## M - Momentum Indicator
 ![M Indicator Example](images/Momo.png)
-*M indicator showing momentum analysis with automatic color coding*
 
 M is a momentum oscillator that applies Hodrick-Prescott filtering combined with harmonic analysis to price data. The indicator uses spectral analysis to decompose price movements and extract momentum signals from up to 20 harmonic frequency components.
 
@@ -40,7 +38,6 @@ The study processes a configurable number of recent bars (default 500) and displ
 
 ## Strike Zone Hotkey System
 ![Strike Zone Example](images/StrikeZone.png)
-*Strike zones created around predefined price levels using keyboard shortcuts*
 
 The Strike Zone Hotkey System creates temporary rectangular zones around hardcoded price levels using keyboard shortcuts (1, 2, 3, 4). Three zone configurations are available with different distances and heights, each with configurable colors and transparency.
 
