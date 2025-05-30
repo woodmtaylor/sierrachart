@@ -15,7 +15,7 @@ Place the `.cpp` file in `ACS_Source` folder, then go to **Analysis → Build Cu
 
 ## AutoBAs - Automated Trading Levels
 
-![AutoBAs Example](path/to/your/image.png)
+![AutoBAs Example](images/AutoBAs.png)
 *AutoBAs identifying balance areas with value area highlights and activation tracking*
 
 AutoBAs is a market profile study that identifies and tracks Balance Areas (BAs) in real-time. The study implements a lifecycle management system that monitors BA formation, activation, and intersection dynamics.
