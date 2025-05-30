@@ -19,7 +19,7 @@ Place the `.cpp` file in `ACS_Source` folder, then go to **Analysis → Build Cu
 
 AutoBAs identifies and tracks Balance Areas in real-time using volume profile overlap, value area overlap, and geometric proximity analysis. The study monitors BA formation, activation when price breaks value area boundaries, and intersection dynamics between multiple balance areas.
 
-Balance areas become "activated" on breakouts and draw extending rectangles until they intersect with newer activated areas. This creates a hierarchy where older areas are "cut" by newer ones, generating Post-Balance Area Lines (PBALs) as reference levels.
+Balance areas become "activated" on breakouts and draw extending rectangles until they intersect with newer activated areas. This creates a hierarchy where older areas are "cut" by newer ones, generating Partial-Balance Area Highs and Lows (PBAH/Ls) as reference levels.
 
 The study includes statistical normality filtering, composite pattern detection (HLH/LHL formations), and probe line identification. It requires a Volume by Price study and supports up to 500 trading sessions with configurable visual styling and debug modes.
 
