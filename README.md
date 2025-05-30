@@ -1,51 +1,47 @@
 # Sierra Chart Studies
-
 A collection of my custom Sierra Chart studies.
 
 ## Table of Contents
-
 - [Installation](#installation)
 - [AutoBAs - Automated Balance Area Detection](#autobas---automated-balance-area-detection)
+- [Strike Zone Hotkey System](#strike-zone-hotkey-system)
+- [M - Momentum Indicator](#m---momentum-indicator)
 
 ---
 
 ## Installation
-
 Place the `.cpp` file in `ACS_Source` folder, then go to **Analysis → Build Custom Studies DLL → Build → Remote Build - Standard.** Then **Analysis → Studies → Add Custom Study**
 
 ## AutoBAs - Automated Trading Levels
-
 ![AutoBAs Example](images/AutoBAs.png)
 *AutoBAs identifying balance areas with value area highlights and activation tracking*
 
-AutoBAs is a market profile study that identifies and tracks Balance Areas (BAs) in real-time. The study implements a lifecycle management system that monitors BA formation, activation, and intersection dynamics.
+AutoBAs identifies and tracks Balance Areas in real-time using volume profile overlap, value area overlap, and geometric proximity analysis. The study monitors BA formation, activation when price breaks value area boundaries, and intersection dynamics between multiple balance areas.
 
-### Core Functionality
+Balance areas become "activated" on breakouts and draw extending rectangles until they intersect with newer activated areas. This creates a hierarchy where older areas are "cut" by newer ones, generating Post-Balance Area Lines (PBALs) as reference levels.
 
-The study analyzes consecutive trading sessions to identify periods where price remains balanced within defined ranges. It uses three detection methods: volume profile overlap between sessions, value area overlap, and geometric proximity analysis. When two sessions meet the criteria, a balance area is initiated and the study attempts to extend it by incorporating sessions that maintain similar characteristics.
-
-Balance areas become "activated" when price breaks outside their value area boundaries. Once activated, the study draws extending rectangles that continue until they intersect with newer activated balance areas. This intersection management creates a hierarchy where older activated areas are "cut" by newer ones, generating Post-Balance Area Lines (PBALs) that serve as potential support or resistance levels.
-
-### Features
-
-The study includes statistical normality filtering using skewness and kurtosis calculations to identify distribution patterns and filter out noisy or incomplete balance areas. This helps focus attention on market structure developments.
-
-Composite Balance Area detection identifies multi-session patterns, specifically High-Low-High (HLH) and Low-High-Low (LHL) formations. These patterns represent market structure developments and are validated through range containment, shift magnitude analysis, and temporal proximity checks.
-
-Probe line detection highlights instances where price extends beyond balance area boundaries but returns, often indicating failed breakout attempts or areas of future significance.
-
-### Configuration
-
-The study requires a Volume by Price study as its data source and can track up to 500 trading sessions. Key parameters include volume overlap thresholds (typically 25-35%), value area overlap percentages, and geometric tolerance settings for range similarity and position validation.
-
-Visual customization includes separate styling options for formation rectangles (typically blue), activated extending rectangles (typically orange), probe lines, and composite patterns. The study supports both automatic chart drawings and user-adjustable drawings for manual refinement.
-
-Debug modes provide logging for balance area formation logic and composite detection, useful for parameter optimization and understanding the study's decision-making process.
-
-### Application
-
-AutoBAs identifies market structure in futures markets, particularly ES, NQ, and other liquid contracts with defined session boundaries. The activation tracking helps traders focus on relevant balance areas while the PBAL system provides reference levels.
-
-The study performs continuous background analysis, making it suitable for both historical analysis and live trading applications. Its intersection management and statistical filtering help reduce noise while highlighting structural developments.
+The study includes statistical normality filtering, composite pattern detection (HLH/LHL formations), and probe line identification. It requires a Volume by Price study and supports up to 500 trading sessions with configurable visual styling and debug modes.
 
 ---
+
+## Strike Zone Hotkey System
+![Strike Zone Example](images/StrikeZone.png)
+*Strike zones created around predefined price levels using keyboard shortcuts*
+
+The Strike Zone Hotkey System creates temporary rectangular zones around hardcoded price levels using keyboard shortcuts (1, 2, 3, 4). Three zone configurations are available with different distances and heights, each with configurable colors and transparency.
+
+The system monitors keyboard input continuously and creates zones across recent bars when triggered. Zones automatically clear at session end or can be manually cleared. Key repeat protection prevents accidental multiple creation.
+
+Zone parameters include distance from price level, zone height, visual styling, and hotkey assignments. The study uses predefined price levels embedded in the code for specific trading setups.
+
+---
+
+## M - Momentum Indicator
+![M Indicator Example](images/Momo.png)
+*M indicator showing momentum analysis with automatic color coding*
+
+M is a momentum oscillator that applies Hodrick-Prescott filtering combined with harmonic analysis to price data. The indicator uses spectral analysis to decompose price movements and extract momentum signals from up to 20 harmonic frequency components.
+
+The process begins with HP filtering to separate trend and cyclical components, then iteratively fits sinusoidal components using least squares regression. The final momentum line combines trend and reconstructed harmonic components with automatic color coding based on slope direction.
+
+The study processes a configurable number of recent bars (default 500) and displays as an overlay in the main chart region. Parameters include smoothing lambda values and harmonic component counts.
