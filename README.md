@@ -4,13 +4,15 @@ A collection of my custom Sierra Chart studies.
 ## Table of Contents
 - [Installation](#installation)
 - [AutoBAs - Automated Balance Area Detection](#autobas---automated-balance-area-detection)
-- [Strike Zone Hotkey System](#strike-zone-hotkey-system)
 - [M - Momentum Indicator](#m---momentum-indicator)
+- [Strike Zone Hotkey System](#strike-zone-hotkey-system)
 
 ---
 
 ## Installation
 Place the `.cpp` file in `ACS_Source` folder, then go to **Analysis → Build Custom Studies DLL → Build → Remote Build - Standard.** Then **Analysis → Studies → Add Custom Study**
+
+---
 
 ## AutoBAs - Automated Trading Levels
 ![AutoBAs Example](images/AutoBAs.png)
@@ -24,18 +26,6 @@ The study includes statistical normality filtering, composite pattern detection 
 
 ---
 
-## Strike Zone Hotkey System
-![Strike Zone Example](images/StrikeZone.png)
-*Strike zones created around predefined price levels using keyboard shortcuts*
-
-The Strike Zone Hotkey System creates temporary rectangular zones around hardcoded price levels using keyboard shortcuts (1, 2, 3, 4). Three zone configurations are available with different distances and heights, each with configurable colors and transparency.
-
-The system monitors keyboard input continuously and creates zones across recent bars when triggered. Zones automatically clear at session end or can be manually cleared. Key repeat protection prevents accidental multiple creation.
-
-Zone parameters include distance from price level, zone height, visual styling, and hotkey assignments. The study uses predefined price levels embedded in the code for specific trading setups.
-
----
-
 ## M - Momentum Indicator
 ![M Indicator Example](images/Momo.png)
 *M indicator showing momentum analysis with automatic color coding*
@@ -45,3 +35,15 @@ M is a momentum oscillator that applies Hodrick-Prescott filtering combined with
 The process begins with HP filtering to separate trend and cyclical components, then iteratively fits sinusoidal components using least squares regression. The final momentum line combines trend and reconstructed harmonic components with automatic color coding based on slope direction.
 
 The study processes a configurable number of recent bars (default 500) and displays as an overlay in the main chart region. Parameters include smoothing lambda values and harmonic component counts.
+
+---
+
+## Strike Zone Hotkey System
+![Strike Zone Example](images/StrikeZone.png)
+*Strike zones created around predefined price levels using keyboard shortcuts*
+
+The Strike Zone Hotkey System creates temporary rectangular zones around hardcoded price levels using keyboard shortcuts (1, 2, 3, 4). Three zone configurations are available with different distances and heights, each with configurable colors and transparency.
+
+The system monitors keyboard input continuously and creates zones across recent bars when triggered. Zones automatically clear at session end or can be manually cleared. Key repeat protection prevents accidental multiple creation.
+
+Zone parameters include distance from price level, zone height, visual styling, and hotkey assignments. The study uses predefined price levels embedded in the code for specific trading setups.
